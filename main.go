@@ -1,7 +1,16 @@
 package main
 
-import "GolangNotes/gorm"
+import (
+	"GolangNotes/echoNotes"
+	"GolangNotes/gorm"
+)
 
 func main() {
-	gorm.GormMain()
+	flag := "echo"
+
+	if flag == "gorm" {
+		gorm.GormMain()
+	} else if flag == "echo" {
+		echoNotes.EchoMain()
+	}
 }
