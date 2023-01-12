@@ -37,3 +37,12 @@ func Json(c echo.Context) error {
 	}
 	return c.JSON(http.StatusCreated, u) // JSON形式で返す
 }
+
+func Admin(c echo.Context) error {
+	return c.String(http.StatusOK, "url: /admin/top") // admin配下になる
+}
+
+func Find(c echo.Context) error {
+	id := c.Param("id")                                // GETの時と受け取りが少し違う
+	return c.String(http.StatusOK, "パスパラメータで受け取り:"+id) // 文字列で返す
+}

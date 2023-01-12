@@ -24,5 +24,10 @@ func EchoMain() {
 	// curl.exe 'http://localhost:8080/json' -F "name=a" -F "email=a@a"
 	e.POST("/jsonPost", controller.Json)
 
+	//curl.exe 'http://localhost:8080/admin/'
+	g := e.Group("/admin") // ルートをグループ化 /admin/~になる
+	g.GET("/", controller.Admin)
+	// curl.exe 'http://localhost:8080/admin/users/20'
+	g.GET("/users/:id", controller.Find) // :idの文字列を idパラムで受け取れる
 	e.Logger.Fatal(e.Start(":8080"))
 }
